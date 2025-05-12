@@ -1,0 +1,83 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "mcp-context-sdk"
+version = "1.0.0"
+description = "A modular, production-ready Python SDK for building structured, context-aware AI systems"
+authors = ["OpenContext AI <team@opencontext.ai>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "mcp"}]
+repository = "https://github.com/opencontext-ai/mcp-context-sdk"
+documentation = "https://opencontext-ai.github.io/mcp-context-sdk"
+keywords = ["ai", "context", "schema", "llm", "langchain", "autogen"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pydantic = "^2.0.0"
+jsonschema = "^4.0.0"
+click = "^8.0.0"
+yaml = "^5.4.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^6.2.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+mypy = "^1.0.0"
+ruff = "^0.1.0"
+
+[tool.poetry.group.integrations.dependencies]
+langchain = "^0.0.200"
+pyautogen = "^0.2.0"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
+streamlit = "^0.85.0"
+
+[tool.poetry.scripts]
+mcp = "mcp.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --cov=mcp"
+
+[tool.coverage.run]
+source = ["mcp"]
+omit = ["tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "pass",
+    "raise ImportError",
+] 

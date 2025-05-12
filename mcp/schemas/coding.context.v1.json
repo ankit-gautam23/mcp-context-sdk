@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Coding Context Schema v1",
+  "type": "object",
+  "required": ["version", "project", "user", "current_state"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "type", "language"],
+      "properties": {
+        "name": {"type": "string"},
+        "type": {"type": "string"},
+        "language": {"type": "string"}
+      }
+    },
+    "user": {
+      "type": "object",
+      "required": ["role", "expertise_level"],
+      "properties": {
+        "role": {"type": "string"},
+        "expertise_level": {"type": "string"}
+      }
+    },
+    "current_state": {
+      "type": "object",
+      "required": ["file", "cursor_position"],
+      "properties": {
+        "file": {
+          "type": "object",
+          "required": ["path", "content", "language"],
+          "properties": {
+            "path": {"type": "string"},
+            "content": {"type": "string"},
+            "language": {"type": "string"}
+          }
+        },
+        "cursor_position": {
+          "type": "object",
+          "required": ["line", "column"],
+          "properties": {
+            "line": {"type": "integer"},
+            "column": {"type": "integer"}
+          }
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Coding Context Schema v1",
+  "description": "Schema for defining coding-related context for AI assistants",
+  "type": "object",
+  "required": ["version", "project", "user", "current_state"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^v\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": {
+      "type": "object",
+      "required": ["name", "type", "language"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Project name"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["web", "mobile", "desktop", "library", "api", "other"],
+          "description": "Project type"
+        },
+        "language": {
+          "type": "string",
+          "description": "Primary programming language"
+        },
+        "framework": {
+          "type": "string",
+          "description": "Main framework being used"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "version": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "user": {
+      "type": "object",
+      "required": ["role", "expertise_level"],
+      "properties": {
+        "role": {
+          "type": "string",
+          "enum": ["developer", "student", "researcher", "other"],
+          "description": "User's role"
+        },
+        "expertise_level": {
+          "type": "string",
+          "enum": ["beginner", "intermediate", "advanced", "expert"],
+          "description": "User's expertise level"
+        },
+        "preferences": {
+          "type": "object",
+          "properties": {
+            "coding_style": { "type": "string" },
+            "documentation_level": { "type": "string" },
+            "testing_approach": { "type": "string" }
+          }
+        }
+      }
+    },
+    "current_state": {
+      "type": "object",
+      "required": ["file", "cursor_position"],
+      "properties": {
+        "file": {
+          "type": "object",
+          "required": ["path", "content"],
+          "properties": {
+            "path": { "type": "string" },
+            "content": { "type": "string" },
+            "language": { "type": "string" }
+          }
+        },
+        "cursor_position": {
+          "type": "object",
+          "required": ["line", "column"],
+          "properties": {
+            "line": { "type": "integer" },
+            "column": { "type": "integer" }
+          }
+        },
+        "selection": {
+          "type": "object",
+          "properties": {
+            "start": {
+              "type": "object",
+              "properties": {
+                "line": { "type": "integer" },
+                "column": { "type": "integer" }
+              }
+            },
+            "end": {
+              "type": "object",
+              "properties": {
+                "line": { "type": "integer" },
+                "column": { "type": "integer" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "context_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "timestamp": { "type": "string", "format": "date-time" },
+          "action": { "type": "string" },
+          "details": { "type": "object" }
+        }
+      }
+    },
+    "environment": {
+      "type": "object",
+      "properties": {
+        "os": { "type": "string" },
+        "ide": { "type": "string" },
+        "terminal": { "type": "string" },
+        "variables": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  }
+} 

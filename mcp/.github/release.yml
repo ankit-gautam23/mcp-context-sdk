@@ -1,0 +1,66 @@
+name: Release MCP SDK
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Generate changelog
+        id: changelog
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: commits } = await github.rest.repos.compareCommits({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              base: 'v1.0.0',
+              head: context.sha
+            });
+            
+            const changelog = commits.commits
+              .map(commit => `- ${commit.commit.message}`)
+              .join('\n');
+            
+            return changelog;
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: MCP SDK v1.0.0
+          body: |
+            # MCP SDK v1.0.0
+
+            The first stable release of the Model Context Protocol SDK.
+
+            ## Features
+            - Dynamic context construction and validation
+            - Schema-to-prompt conversion
+            - Integration with LangChain, AutoGen, FastAPI, CrewAI, and more
+            - CLI and Streamlit UI demos
+            - Type hints and schema validations
+
+            ## Installation
+            ```bash
+            pip install mcp-context-sdk
+            ```
+
+            ## Documentation
+            Visit our [documentation](https://opencontext-ai.github.io/mcp-context-sdk) for detailed guides and examples.
+
+            ## Links
+            - [GitHub Repository](https://github.com/opencontext-ai/mcp-context-sdk)
+            - [PyPI Package](https://pypi.org/project/mcp-context-sdk/)
+            - [Landing Page](https://opencontext-ai.github.io/mcp-context-sdk)
+          draft: false
+          prerelease: false
+          files: |
+            dist/*.whl
+            dist/*.tar.gz 
