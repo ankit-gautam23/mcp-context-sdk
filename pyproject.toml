@@ -9,7 +9,7 @@ description = "A modular, production-ready Python SDK for building structured, c
 authors = ["OpenContext AI <team@opencontext.ai>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "mcp"}]
+packages = [{include = "mcp_context_sdk"}]
 repository = "https://github.com/opencontext-ai/mcp-context-sdk"
 documentation = "https://opencontext-ai.github.io/mcp-context-sdk"
 keywords = ["ai", "context", "schema", "llm", "langchain", "autogen"]
@@ -46,7 +46,7 @@ uvicorn = "^0.22.0"
 streamlit = "^0.85.0"
 
 [tool.poetry.scripts]
-mcp = "mcp.cli:main"
+mcp = "mcp_context_sdk.cli:main"
 
 [tool.black]
 line-length = 88
@@ -65,10 +65,10 @@ disallow_untyped_defs = true
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-addopts = "-v --cov=mcp"
+addopts = "-v --cov=mcp_context_sdk"
 
 [tool.coverage.run]
-source = ["mcp"]
+source = ["mcp_context_sdk"]
 omit = ["tests/*"]
 
 [tool.coverage.report]
