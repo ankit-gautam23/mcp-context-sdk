@@ -20,6 +20,10 @@ class SchemaLoader:
     
     def _load_all_schemas(self) -> None:
         """Load all available schemas from the schema directory."""
+        if not self.schema_dir.exists():
+            logger.warning(f"Schema directory not found: {self.schema_dir}")
+            return
+
         for domain_dir in self.schema_dir.iterdir():
             if not domain_dir.is_dir():
                 continue
@@ -38,6 +42,10 @@ class SchemaLoader:
                             self.schemas[f"{domain}.{version}"] = schema
                     except Exception as e:
                         logger.error(f"Failed to load schema {schema_file}: {e}")
+    
+    def list_available_schemas(self) -> List[str]:
+        """List all available schema keys."""
+        return list(self.schemas.keys())
     
     def get_schema(self, domain: str, version: Optional[str] = None) -> Dict[str, Any]:
         """Get a schema by domain and optional version."""
