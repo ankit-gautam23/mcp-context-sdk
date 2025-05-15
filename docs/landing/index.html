@@ -3,300 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCP SDK - Model Context Protocol</title>
+    <title>MCP Context SDK - Model Context Protocol SDK</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #4F46E5, #7C3AED);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .feature-card {
-            transition: transform 0.3s ease;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        .code-block {
-            background: #1a1a1a;
-            border-radius: 8px;
-            padding: 1.5rem;
-            font-family: 'Fira Code', monospace;
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0px); }
-        }
-        .hero-pattern {
-            background-image: radial-gradient(circle at 1px 1px, #4F46E5 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-        .copy-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            padding: 0.25rem 0.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .copy-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        .partner-logo {
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s;
-        }
-        .partner-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+        .gradient-bg {
+            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
         }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-gray-800/50 backdrop-blur-lg fixed w-full z-50">
+    <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
-                <div class="flex items-center">
-                    <span class="text-2xl font-bold gradient-text">MCP SDK</span>
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-2xl font-bold text-gray-800">MCP Context SDK</h1>
+                    </div>
                 </div>
-                <div class="flex items-center space-x-6">
-                    <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="text-gray-300 hover:text-white transition-colors">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="https://pypi.org/project/mcp-context-sdk/" class="text-gray-300 hover:text-white transition-colors">
-                        <i class="fab fa-python text-xl"></i>
-                    </a>
-                    <a href="https://ankit-gautam23.github.io/mcp-context-sdk" class="text-gray-300 hover:text-white transition-colors">
-                        <i class="fas fa-book text-xl"></i>
+                <div class="flex items-center">
+                    <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="text-gray-600 hover:text-gray-900">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                        </svg>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <main class="pt-16">
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                    <div class="text-left">
-                        <h1 class="text-5xl md:text-7xl font-extrabold mb-6">
-                            <span class="gradient-text">MCP Context SDK</span>
-                        </h1>
-                        <p class="text-xl md:text-2xl text-gray-300 mb-8">
-                            The next generation of context-aware AI systems. Build, validate, and deploy AI applications with structured context schemas.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="https://pypi.org/project/mcp-context-sdk/" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                                Get Started
-                            </a>
-                            <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                                View on GitHub
-                            </a>
-                        </div>
-                        <div class="mt-8 relative">
-                            <div class="bg-gray-800/50 p-4 rounded-lg">
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-gray-400">$</span>
-                                    <code class="text-gray-200">pip install mcp-context-sdk</code>
-                                    <button onclick="copyToClipboard('pip install mcp-context-sdk')" class="copy-button">
-                                        <i class="fas fa-copy"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="hero-pattern absolute inset-0 opacity-10"></div>
-                        <div class="relative bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg animate-float">
-                            <pre class="text-gray-200"><code>from mcp_context_sdk import ContextBuilder
-
-# Create a context
-context = ContextBuilder()\
-    .with_schema("coding")\
-    .with_version("v1")\
-    .build()
-
-# Use with your AI system
-response = ai_model.generate(
-    context=context
-)</code></pre>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
-        <section class="py-24 bg-gray-800/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Why Choose MCP SDK?</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Schema-Based Context</h3>
-                        <p class="text-gray-300">
-                            Define and validate structured context schemas for your AI applications with type safety and runtime validation.
-                        </p>
-                    </div>
-                    <div class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-plug"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Framework Integration</h3>
-                        <p class="text-gray-300">
-                            Seamlessly integrate with LangChain, AutoGen, FastAPI, and other popular AI frameworks.
-                        </p>
-                    </div>
-                    <div class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Production Ready</h3>
-                        <p class="text-gray-300">
-                            Built with type safety, validation, and best practices in mind for enterprise-grade applications.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Integration Section -->
-        <section class="py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Trusted by Developers</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png" alt="TensorFlow" class="h-12 partner-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/PyTorch_logo_icon.svg/1200px-PyTorch_logo_icon.svg.png" alt="PyTorch" class="h-12 partner-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1200px-Scikit_learn_logo_small.svg.png" alt="Scikit-learn" class="h-12 partner-logo">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png" alt="Jupyter" class="h-12 partner-logo">
-                </div>
-            </div>
-        </section>
-
-        <!-- Documentation Preview -->
-        <section class="py-24 bg-gray-800/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Documentation</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <a href="https://ankit-gautam23.github.io/mcp-context-sdk/getting-started" class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Getting Started</h3>
-                        <p class="text-gray-300">
-                            Quick start guide and installation instructions
-                        </p>
-                    </a>
-                    <a href="https://ankit-gautam23.github.io/mcp-context-sdk/api-reference" class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-book"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">API Reference</h3>
-                        <p class="text-gray-300">
-                            Detailed API documentation and examples
-                        </p>
-                    </a>
-                    <a href="https://ankit-gautam23.github.io/mcp-context-sdk/tutorials" class="feature-card bg-gray-800/50 p-8 rounded-xl backdrop-blur-lg">
-                        <div class="text-indigo-400 text-4xl mb-4">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Tutorials</h3>
-                        <p class="text-gray-300">
-                            Step-by-step guides and best practices
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-bold mb-8 gradient-text">Ready to Build the Future of AI?</h2>
-                <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                    Join the community of developers building the next generation of context-aware AI systems.
-                </p>
-                <div class="flex justify-center space-x-4">
-                    <a href="https://pypi.org/project/mcp-context-sdk/" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                        Get Started
-                    </a>
-                    <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-                        Star on GitHub
-                    </a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800/50 backdrop-blur-lg">
-        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <!-- Hero Section -->
+    <div class="gradient-bg">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
             <div class="text-center">
-                <p class="text-gray-400">
-                    &copy; 2024 Ankit Gautam. MIT License.
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl sm:tracking-tight lg:text-6xl">
+                    MCP Context SDK
+                </h1>
+                <p class="mt-6 max-w-2xl mx-auto text-xl text-white">
+                    A modular, production-ready Python SDK for building context-aware AI systems
                 </p>
-                <div class="mt-4 flex justify-center space-x-6">
-                    <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="https://pypi.org/project/mcp-context-sdk/" class="text-gray-400 hover:text-white">
-                        <i class="fab fa-python text-xl"></i>
-                    </a>
-                    <a href="https://ankit-gautam23.github.io/mcp-context-sdk" class="text-gray-400 hover:text-white">
-                        <i class="fas fa-book text-xl"></i>
+                <div class="mt-10">
+                    <a href="https://pypi.org/project/mcp-context-sdk/" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-white hover:bg-gray-50">
+                        Install from PyPI
                     </a>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Features</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Everything you need for context-aware AI
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Dynamic Context Construction</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Build and validate context dynamically using JSON schemas
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Framework Integrations</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Seamless integration with FastAPI, LangChain, AutoGen, and more
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Documentation Section -->
+    <div class="bg-gray-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Documentation</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Learn how to use MCP Context SDK
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">User Guide</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Get started with MCP Context SDK
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">API Reference</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Detailed API documentation
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
+                        </div>
+                        <div class="ml-16">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900">Examples</h3>
+                            <p class="mt-2 text-base text-gray-500">
+                                Code examples and tutorials
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
+            <div class="flex justify-center space-x-6 md:order-2">
+                <a href="https://github.com/ankit-gautam23/mcp-context-sdk" class="text-gray-400 hover:text-gray-500">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="mt-8 md:mt-0 md:order-1">
+                <p class="text-center text-base text-gray-400">
+                    &copy; 2024 MCP Context SDK. All rights reserved.
+                </p>
+            </div>
+        </div>
     </footer>
-
-    <script>
-        // Add smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Add intersection observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        });
-
-        document.querySelectorAll('.feature-card').forEach((el) => observer.observe(el));
-
-        // Copy to clipboard functionality
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(() => {
-                const button = event.target.closest('button');
-                const icon = button.querySelector('i');
-                icon.classList.remove('fa-copy');
-                icon.classList.add('fa-check');
-                setTimeout(() => {
-                    icon.classList.remove('fa-check');
-                    icon.classList.add('fa-copy');
-                }, 2000);
-            });
-        }
-    </script>
 </body>
 </html> 
