@@ -7,6 +7,7 @@
 [![Documentation](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://ankit-gautam23.github.io/mcp-context-sdk)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Contributors](https://img.shields.io/github/contributors/ankit-gautam23/mcp-context-sdk)](https://github.com/ankit-gautam23/mcp-context-sdk/graphs/contributors)
+[![Test Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen.svg)](https://github.com/ankit-gautam23/mcp-context-sdk/actions)
 
 ## Overview
 
@@ -104,12 +105,14 @@ streamlit run examples/streamlit_ui.py
 
 ## Documentation
 
-- [User Guide](https://ankit-gautam23.github.io/mcp-context-sdk/user-guide)
-- [API Reference](https://ankit-gautam23.github.io/mcp-context-sdk/api)
-- [Examples](https://ankit-gautam23.github.io/mcp-context-sdk/examples)
-- [Contributing Guide](CONTRIBUTING.md)
-- [Code of Conduct](CODE_OF_CONDUCT.md)
-- [Security Policy](SECURITY.md)
+Visit our [documentation site](https://ankit-gautam23.github.io/mcp-context-sdk) for:
+
+- 📖 [User Guide](https://ankit-gautam23.github.io/mcp-context-sdk/user-guide) - Get started with MCP Context SDK
+- 📚 [API Reference](https://ankit-gautam23.github.io/mcp-context-sdk/api) - Detailed API documentation
+- 🚀 [Examples](https://ankit-gautam23.github.io/mcp-context-sdk/examples) - Code examples and tutorials
+- 🤝 [Contributing Guide](CONTRIBUTING.md) - How to contribute to the project
+- 📋 [Code of Conduct](CODE_OF_CONDUCT.md) - Community guidelines
+- 🔒 [Security Policy](SECURITY.md) - Security reporting guidelines
 
 ## Development
 
@@ -147,6 +150,8 @@ mcp-context-sdk/
 │   ├── integrations/    # Framework integrations
 │   └── utils/           # Utility functions
 ├── docs/                # Documentation
+│   ├── landing/        # GitHub Pages site
+│   └── api/            # API documentation
 ├── examples/            # Example code
 ├── schemas/             # JSON schemas
 └── tests/              # Test suite
@@ -176,7 +181,7 @@ If you use MCP Context SDK in your research, please cite:
 @software{mcp_context_sdk,
   author = {Ankit Gautam},
   title = {MCP Context SDK},
-  year = {2024},
+  year = {2025},
   url = {https://github.com/ankit-gautam23/mcp-context-sdk}
 }
 ```
@@ -184,8 +189,7 @@ If you use MCP Context SDK in your research, please cite:
 ## Contact
 
 - GitHub Issues: [Create an issue](https://github.com/ankit-gautam23/mcp-context-sdk/issues)
-- Email: ankit.gautam@example.com
-- Twitter: [@your_twitter_handle]
+- Email: ankit.gautamp23@gmail.com
 
 ## Acknowledgments
 
