@@ -27,17 +27,13 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8.1,<4.0"
 pydantic = "^2.0.0"
 fastapi = {version = "^0.100.0", optional = true}
-langchain = {version = "^0.0.200", optional = true}
-autogen = {version = "^0.2.0", optional = true}
 
 [tool.poetry.extras]
 fastapi = ["fastapi"]
-langchain = ["langchain"]
-autogen = ["autogen"]
-all = ["fastapi", "langchain", "autogen"]
+all = ["fastapi"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
